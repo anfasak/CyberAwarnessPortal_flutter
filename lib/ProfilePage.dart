@@ -1,3 +1,5 @@
+import 'package:cyberguard/ViewResult.dart';
+import 'package:cyberguard/helpandsuppro.dart';
 import 'package:flutter/material.dart';
 
 class Profilepage extends StatelessWidget {
@@ -14,10 +16,7 @@ class Profilepage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Profile",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
         iconTheme: const IconThemeData(color: Colors.black),
       ),
@@ -26,7 +25,6 @@ class Profilepage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-
             /// 🔹 PROFILE HEADER
             Container(
               padding: const EdgeInsets.all(20),
@@ -45,24 +43,17 @@ class Profilepage extends StatelessWidget {
                 children: const [
                   CircleAvatar(
                     radius: 45,
-                    backgroundImage:
-                        NetworkImage("https://i.pravatar.cc/300"),
+                    backgroundImage: NetworkImage("https://i.pravatar.cc/300"),
                   ),
                   SizedBox(height: 12),
                   Text(
                     "Cyber Guardian",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 4),
                   Text(
                     "cyberguardian@email.com",
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Colors.black54, fontSize: 14),
                   ),
                 ],
               ),
@@ -76,25 +67,27 @@ class Profilepage extends StatelessWidget {
               title: "Edit Profile",
               onTap: () {},
             ),
-            _profileTile(
-              icon: Icons.security,
-              title: "Security Settings",
-              onTap: () {},
-            ),
-            _profileTile(
-              icon: Icons.history,
-              title: "Activity History",
-              onTap: () {},
-            ),
+         
+         
             _profileTile(
               icon: Icons.quiz,
               title: "Quiz Progress",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResultPage()),
+                );
+              },
             ),
             _profileTile(
               icon: Icons.help_outline,
               title: "Help & Support",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BottomBarPagehelp()),
+                );
+              },
             ),
 
             const SizedBox(height: 20),
@@ -148,21 +141,12 @@ class Profilepage extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            offset: Offset(0, 4),
-          ),
+          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4)),
         ],
       ),
       child: ListTile(
         leading: Icon(icon, color: Colors.blueAccent),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
         onTap: onTap,
       ),

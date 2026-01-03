@@ -1,3 +1,4 @@
+import 'package:cyberguard/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,7 +28,7 @@ class ExploreDetailPage extends StatelessWidget {
               child: Image.network(
                 data['image'].startsWith('http')
                     ? data['image']
-                    : "http://192.168.1.39:5000${data['image']}",
+                    : "$baseurl${data['image']}",
                 width: double.infinity,
                 height: 200,
                 fit: BoxFit.cover,

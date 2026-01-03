@@ -1,28 +1,21 @@
- import 'package:cyberguard/HomePage.dart';
+import 'package:cyberguard/HomePage.dart';
 import 'package:cyberguard/ProfilePage.dart';
 import 'package:cyberguard/Quiz.dart';
 import 'package:cyberguard/SendComplaint.dart';
 import 'package:cyberguard/SendFeedback.dart';
 import 'package:flutter/material.dart';
 
-
-
-class BottomBarPage extends StatefulWidget {
-  const BottomBarPage({super.key});
+class BottomBarPagehelp extends StatefulWidget {
+  const BottomBarPagehelp({super.key});
 
   @override
-  State<BottomBarPage> createState() => _BottomBarPageState();
+  State<BottomBarPagehelp> createState() => _BottomBarPagehelpState();
 }
 
-class _BottomBarPageState extends State<BottomBarPage> {
+class _BottomBarPagehelpState extends State<BottomBarPagehelp> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomePage(),
-   Profilepage(),
-   QuizPage(),
-
-  ];
+  final List<Widget> _pages = const [SendFeedback(), SendComplaint()];
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +33,10 @@ class _BottomBarPageState extends State<BottomBarPage> {
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.feed), label: "feedback"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-       
-           BottomNavigationBarItem(
-            icon: Icon(Icons.quiz),
-            label: "Quiz",
+            icon: Icon(Icons.warning),
+            label: "complaint",
           ),
         ],
       ),

@@ -100,109 +100,111 @@ Future<void> post_reg(content) async {
           /// 🔹 FORM WRAPPER
           child: Form(
             key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  children: const [
-                    Icon(Icons.shield_outlined, color: Color(0xFF4C6FFF)),
-                    SizedBox(width: 8),
-                    Text(
-                      "Create Account",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1A1F36),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.shield_outlined, color: Color(0xFF4C6FFF)),
+                      SizedBox(width: 8),
+                      Text(
+                        "Create Account",
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1A1F36),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "Your data is protected with secure encryption",
-                  style: TextStyle(color: Colors.grey[600]),
-                ),
-                const SizedBox(height: 36),
-
-                _animatedField(
-                  "Full Name",
-                  fullNameController,
-                  _focusNodes[0],
-                  Icons.person_outline,
-                  validator: (v) =>
-                      v!.isEmpty ? "Full Name is required" : null,
-                ),
-
-                _animatedField(
-                  "Email Address",
-                  emailController,
-                  _focusNodes[1],
-                  Icons.email_outlined,
-                  validator: (v) {
-                    if (v!.isEmpty) return "Email is required";
-                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(v)) {
-                      return "Enter valid email";
-                    }
-                    return null;
-                  },
-                ),
-
-                _animatedField(
-                  "Country",
-                  countryController,
-                  _focusNodes[2],
-                  Icons.public,
-                  validator: (v) =>
-                      v!.isEmpty ? "Country is required" : null,
-                ),
-
-                _animatedField(
-                  "Phone Number",
-                  phoneController,
-                  _focusNodes[3],
-                  Icons.phone_outlined,
-                  validator: (v) {
-                    if (v!.isEmpty) return "Phone number is required";
-                    if (v.length < 10) return "Enter valid phone number";
-                    return null;
-                  },
-                ),
-
-                _animatedField(
-                  "Password",
-                  passwordController,
-                  _focusNodes[4],
-                  Icons.lock_outline,
-                  isPassword: true,
-                  validator: (v) {
-                    if (v!.isEmpty) return "Password is required";
-                    if (v.length < 6) return "Min 6 characters required";
-                    return null;
-                  },
-                ),
-
-                const SizedBox(height: 20),
-
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _agree,
-                      activeColor: const Color(0xFF4C6FFF),
-                      onChanged: (v) => setState(() => _agree = v!),
-                    ),
-                    const Expanded(
-                      child: Text(
-                        "I agree to the Terms & Privacy Policy",
-                        style: TextStyle(fontSize: 13),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Your data is protected with secure encryption",
+                    style: TextStyle(color: Colors.grey[600]),
+                  ),
+                  const SizedBox(height: 36),
+              
+                  _animatedField(
+                    "Full Name",
+                    fullNameController,
+                    _focusNodes[0],
+                    Icons.person_outline,
+                    validator: (v) =>
+                        v!.isEmpty ? "Full Name is required" : null,
+                  ),
+              
+                  _animatedField(
+                    "Email Address",
+                    emailController,
+                    _focusNodes[1],
+                    Icons.email_outlined,
+                    validator: (v) {
+                      if (v!.isEmpty) return "Email is required";
+                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(v)) {
+                        return "Enter valid email";
+                      }
+                      return null;
+                    },
+                  ),
+              
+                  _animatedField(
+                    "Country",
+                    countryController,
+                    _focusNodes[2],
+                    Icons.public,
+                    validator: (v) =>
+                        v!.isEmpty ? "Country is required" : null,
+                  ),
+              
+                  _animatedField(
+                    "Phone Number",
+                    phoneController,
+                    _focusNodes[3],
+                    Icons.phone_outlined,
+                    validator: (v) {
+                      if (v!.isEmpty) return "Phone number is required";
+                      if (v.length < 10) return "Enter valid phone number";
+                      return null;
+                    },
+                  ),
+              
+                  _animatedField(
+                    "Password",
+                    passwordController,
+                    _focusNodes[4],
+                    Icons.lock_outline,
+                    isPassword: true,
+                    validator: (v) {
+                      if (v!.isEmpty) return "Password is required";
+                      if (v.length < 6) return "Min 6 characters required";
+                      return null;
+                    },
+                  ),
+              
+                  const SizedBox(height: 20),
+              
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _agree,
+                        activeColor: const Color(0xFF4C6FFF),
+                        onChanged: (v) => setState(() => _agree = v!),
                       ),
-                    )
-                  ],
-                ),
-
-                const SizedBox(height: 30),
-
-                _buildSubmitButton(),
-              ],
+                      const Expanded(
+                        child: Text(
+                          "I agree to the Terms & Privacy Policy",
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      )
+                    ],
+                  ),
+              
+                  const SizedBox(height: 30),
+              
+                  _buildSubmitButton(),
+                ],
+              ),
             ),
           ),
         ),
